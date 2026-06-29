@@ -1,6 +1,6 @@
 import { lazy, Suspense, useCallback, useState, useEffect } from 'react'
 import { ArrowLeftOutlined } from '@ant-design/icons'
-import { App as AntdApp, Button, Card, ConfigProvider, Layout, message, Spin, Steps } from 'antd'
+import { App as AntdApp, Button, Card, ConfigProvider, Layout, message, Modal, Spin, Steps } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
 import enUS from 'antd/locale/en_US'
 import jaJP from 'antd/locale/ja_JP'
@@ -77,6 +77,7 @@ function App() {
   const { lang, setLang, t } = useLanguage()
   const [gemToken, setGemToken] = useState(() => getGemToken())
   const [mode, setMode] = useState<AppMode>(null)
+  const [showMigrationNotice, setShowMigrationNotice] = useState(true)
   /** 首页快捷键：R/T/N → RoninPro 子模块、S → Sprite Sheet 调整等 */
   const [roninProDeepLink, setRoninProDeepLink] = useState<string | null>(null)
   const consumeRoninProDeepLink = useCallback(() => setRoninProDeepLink(null), [])
@@ -285,6 +286,47 @@ function App() {
       <AntdApp>
       <ImageStashPanel />
       <Layout className="app-layout">
+        <Modal
+          className="migration-notice-modal"
+          centered
+          closable={false}
+          keyboard={false}
+          maskClosable={false}
+          footer={null}
+          open={mode === null && showMigrationNotice}
+          width={680}
+        >
+          <div className="migration-notice">
+            <div className="migration-notice-kicker">网站迁移通知</div>
+            <h2 className="migration-notice-title">网站迁移至新地址：</h2>
+            <a
+              className="migration-notice-url"
+              href="https://frameronin.com"
+              rel="noopener noreferrer"
+            >
+              frameronin.com
+            </a>
+            <p className="migration-notice-note">备注：联系qq 719937402</p>
+            <div className="migration-notice-actions">
+              <Button
+                className="migration-notice-primary"
+                type="primary"
+                size="large"
+                href="https://frameronin.com"
+              >
+                点击前往新地址
+              </Button>
+              <Button
+                className="migration-notice-secondary"
+                type="text"
+                size="small"
+                onClick={() => setShowMigrationNotice(false)}
+              >
+                继续使用
+              </Button>
+            </div>
+          </div>
+        </Modal>
         <Header className="app-header">
           <div className="app-header-bg" aria-hidden="true" />
           <div className="app-header-content">

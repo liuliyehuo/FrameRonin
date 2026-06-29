@@ -195,6 +195,121 @@
   box-sizing: border-box;
 }
 
+.migration-notice-modal .ant-modal-content {
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(95, 68, 52, 0.35);
+  border-radius: 8px;
+  background: #f5efe7;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+}
+
+.migration-notice {
+  padding: 44px 42px 36px;
+  text-align: center;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62) 0%, rgba(245, 239, 231, 0.94) 100%),
+    radial-gradient(circle at 50% 0%, rgba(204, 72, 45, 0.24) 0%, rgba(204, 72, 45, 0) 48%);
+}
+
+.migration-notice-kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 0 12px;
+  margin-bottom: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #8f351f;
+  background: rgba(181, 82, 51, 0.12);
+  border: 1px solid rgba(181, 82, 51, 0.22);
+  border-radius: 4px;
+}
+
+.migration-notice-title {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.22;
+  color: #2d241f;
+}
+
+.migration-notice-url {
+  display: block;
+  margin-top: 10px;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.16;
+  color: #a33c23;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.migration-notice-url:hover {
+  color: #c24c2d;
+  text-decoration: underline;
+}
+
+.migration-notice-note {
+  margin: 22px 0 0;
+  font-size: 17px;
+  color: #5a4b3f;
+}
+
+.migration-notice-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.migration-notice-primary.ant-btn {
+  width: min(100%, 420px);
+  min-height: 58px;
+  font-size: 22px;
+  font-weight: 800;
+  border-color: #b83c22;
+  background: #b83c22;
+  box-shadow: 0 12px 28px rgba(184, 60, 34, 0.32);
+}
+
+.migration-notice-primary.ant-btn:hover {
+  border-color: #cf4b2c !important;
+  background: #cf4b2c !important;
+}
+
+.migration-notice-secondary.ant-btn {
+  height: 24px;
+  padding: 0 8px;
+  font-size: 12px;
+  color: rgba(72, 64, 58, 0.48);
+}
+
+.migration-notice-secondary.ant-btn:hover {
+  color: rgba(72, 64, 58, 0.72) !important;
+  background: rgba(72, 64, 58, 0.06) !important;
+}
+
+@media (max-width: 640px) {
+  .migration-notice {
+    padding: 34px 20px 28px;
+  }
+
+  .migration-notice-title {
+    font-size: 26px;
+  }
+
+  .migration-notice-url {
+    font-size: 30px;
+  }
+
+  .migration-notice-primary.ant-btn {
+    min-height: 54px;
+    font-size: 19px;
+  }
+}
+
 .app-content .ant-card {
   width: 100%;
   box-sizing: border-box;
